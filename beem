@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>สำหรับบีม 💖</title>
+
+<style>
+
+body{
+font-family:sans-serif;
+text-align:center;
+background:#ffd6e7;
+padding:40px;
+overflow:hidden;
+}
+
+.book{
+background:white;
+padding:30px;
+border-radius:20px;
+max-width:500px;
+margin:auto;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+img{
+width:240px;
+border-radius:15px;
+margin:15px;
+cursor:pointer;
+transition:0.3s;
+}
+
+img:hover{
+transform:scale(1.08);
+}
+
+button{
+padding:12px 25px;
+font-size:18px;
+border:none;
+border-radius:10px;
+background:#ff4d88;
+color:white;
+cursor:pointer;
+margin:8px;
+}
+
+input{
+padding:10px;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+.heart{
+position:fixed;
+font-size:24px;
+animation:float 4s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-10vh);}
+}
+
+.fire{
+position:fixed;
+font-size:30px;
+animation:boom 2s ease-out;
+}
+
+@keyframes boom{
+0%{transform:scale(0);}
+100%{transform:scale(1.5);opacity:0;}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_115b9b6f41.mp3">
+</audio>
+
+<div class="book" id="page">
+
+<h2>ใส่รหัสก่อนน้าใบ้ให้ว่าเป็นวันเกิดอ้วน+วันเกิดเค้า 💌</h2>
+
+<input type="password" id="pass">
+<br><br>
+
+<button onclick="check()">เข้าไปดู</button>
+
+</div>
+
+<script>
+
+var page=document.getElementById("page");
+var music=document.getElementById("music");
+
+function check(){
+
+var p=document.getElementById("pass").value;
+
+if(p=="1778"){
+
+page.innerHTML=`
+
+<h2>สมุดของเรา 📖</h2>
+
+<p>บีมลองเปิดดูนะ</p>
+
+<button onclick="start()">เปิดสมุด</button>
+
+`;
+
+}else{
+
+alert("รหัสไม่ถูกนะ 😜");
+
+}
+
+}
+
+function start(){
+
+music.play();
+
+page1();
+
+}
+
+function page1(){
+
+page.innerHTML=`
+
+<h2>หน้าแรก</h2>
+
+<p>ตั้งแต่ยุบได้รู้จักบีม ยุบมีความสุขมากๆเลยนะ</p>
+
+<img src="https://i.ibb.co/Q7HWL880/photo1.jpg" onclick="page2()">
+
+<p>กดรูปเพื่อเปิดหน้าถัดไป 💕</p>
+
+`;
+
+}
+
+function page2(){
+
+page.innerHTML=`
+
+<h2>ยุบดีใจที่ได้เจอบีมจริงๆนะ</h2>
+
+<img src="https://i.ibb.co/Q7HWL880/photo2.jpg" onclick="page3()">
+
+`;
+
+}
+
+function page3(){
+
+page.innerHTML=`
+
+<h2>บางทีเราก็ทะเลาะกัน เข้าใจกันผิด</h2>
+<p>แต่ยุบยังอยากมีบีมอยู่ในชีวิตนะ</p>
+
+<img src="https://i.ibb.co/Q7HWL880/photo3.jpg" onclick="page4()">
+
+`;
+
+}
+
+function page4(){
+
+page.innerHTML=`
+
+<h2>แล้วก็มีบางอย่างที่ยุบอยากจะบอก</h2>
+
+<img src="https://i.ibb.co/Q7HWL880/photo4.jpg" onclick="ask()">
+
+`;
+
+}
+
+function ask(){
+
+page.innerHTML=`
+
+<h1>บีมจะเป็นแฟนกับยุบไหม ❤️</h1>
+
+<button onclick="yes()">ตกลง 💖</button>
+<button id="noBtn" onmouseover="run()">ไม่อะ 😜</button>
+
+`;
+
+}
+
+function yes(){
+
+page.innerHTML=`
+
+<h1>เย้! ❤️</h1>
+<h2>ยุบ & บีม</h2>
+<h3>เป็นแฟนกันแล้วนะ</h3>
+
+`;
+
+setInterval(heart,300);
+setInterval(firework,500);
+
+}
+
+function run(){
+
+var btn=document.getElementById("noBtn");
+
+btn.style.position="absolute";
+btn.style.left=Math.random()*80+"%";
+btn.style.top=Math.random()*80+"%";
+
+}
+
+function heart(){
+
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(h);
+
+setTimeout(()=>{
+h.remove();
+},4000)
+
+}
+
+function firework(){
+
+let f=document.createElement("div");
+f.className="fire";
+f.innerHTML="🎆";
+
+f.style.left=Math.random()*100+"vw";
+f.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(f);
+
+setTimeout(()=>{
+f.remove();
+},2000)
+
+}
+
+</script>
+
+</body>
+</html>
