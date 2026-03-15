@@ -95,6 +95,14 @@ animation:boom 1.5s ease-out;
 100%{transform:scale(1.6);opacity:0;}
 }
 
+@keyframes shake{
+0%{transform:translate(-50%,-50%)}
+25%{transform:translate(-48%,-50%)}
+50%{transform:translate(-52%,-50%)}
+75%{transform:translate(-48%,-50%)}
+100%{transform:translate(-50%,-50%)}
+}
+
 </style>
 
 </head>
@@ -109,7 +117,8 @@ animation:boom 1.5s ease-out;
 
 <h2>ใส่รหัสก่อนน้า ใบ้ให้ว่าเป็นวันเกิดอ้วน + วันเกิดเค้า 💌</h2>
 
-<input type="password" id="pass">
+<input type="password" id="pass" onkeypress="if(event.key==='Enter')check()">
+
 <br><br>
 
 <button onclick="check()">เข้าไปดู</button>
@@ -139,15 +148,48 @@ page.innerHTML=`
 
 }else{
 
-alert("รหัสไม่ถูกนะ 😜");
+showError();
 
 }
+
+}
+
+function showError(){
+
+let popup=document.createElement("div");
+
+popup.innerHTML=`
+<div style="
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
+text-align:center;
+z-index:999;
+animation:shake 0.3s;
+">
+
+<h2>รหัสไม่ถูกนะ 😜</h2>
+<p>ลองอีกครั้งนะ</p>
+
+<button onclick="this.parentElement.parentElement.remove()">
+โอเค
+</button>
+
+</div>
+`;
+
+document.body.appendChild(popup);
 
 }
 
 function start(){
 
-music.volume=0.6;
+music.volume=0.2;
 music.play().catch(()=>{});
 
 page1();
