@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>สำหรับบีม 💖</title>
 
 <style>
 
 body{
 font-family:sans-serif;
-text-align:center;
-background:#ffd6e7;
-padding:40px;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+background:linear-gradient(135deg,#ffd6e7,#ffc1d6);
+margin:0;
 overflow:hidden;
 }
 
 .book{
 background:white;
-padding:30px;
+padding:25px;
 border-radius:20px;
-max-width:500px;
-margin:auto;
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
+width:90%;
+max-width:420px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+position:relative;
+}
+
+h1,h2,h3,p{
+margin:10px 0;
 }
 
 img{
-width:240px;
+width:200px;
 border-radius:15px;
 margin:15px;
 cursor:pointer;
@@ -44,6 +56,11 @@ background:#ff4d88;
 color:white;
 cursor:pointer;
 margin:8px;
+transition:0.2s;
+}
+
+button:hover{
+transform:scale(1.05);
 }
 
 input{
@@ -66,12 +83,12 @@ animation:float 4s linear infinite;
 .fire{
 position:fixed;
 font-size:30px;
-animation:boom 2s ease-out;
+animation:boom 1.5s ease-out;
 }
 
 @keyframes boom{
 0%{transform:scale(0);}
-100%{transform:scale(1.5);opacity:0;}
+100%{transform:scale(1.6);opacity:0;}
 }
 
 </style>
@@ -86,7 +103,7 @@ animation:boom 2s ease-out;
 
 <div class="book" id="page">
 
-<h2>ใส่รหัสก่อนน้าใบ้ให้ว่าเป็นวันเกิดอ้วน+วันเกิดเค้า 💌</h2>
+<h2>ใส่รหัสก่อนน้า ใบ้ให้ว่าเป็นวันเกิดอ้วน + วันเกิดเค้า 💌</h2>
 
 <input type="password" id="pass">
 <br><br>
@@ -192,7 +209,7 @@ page.innerHTML=`
 <h1>บีมจะเป็นแฟนกับยุบไหม ❤️</h1>
 
 <button onclick="yes()">ตกลง 💖</button>
-<button id="noBtn" onmouseover="run()">ไม่อะ 😜</button>
+<button id="noBtn" onmouseover="run()" onclick="run()">ไม่อะ 😜</button>
 
 `;
 
@@ -209,7 +226,7 @@ page.innerHTML=`
 `;
 
 setInterval(heart,300);
-setInterval(firework,500);
+setInterval(firework,400);
 
 }
 
@@ -218,8 +235,12 @@ function run(){
 var btn=document.getElementById("noBtn");
 
 btn.style.position="absolute";
-btn.style.left=Math.random()*80+"%";
-btn.style.top=Math.random()*80+"%";
+
+var x=Math.random()*70;
+var y=Math.random()*70;
+
+btn.style.left=x+"%";
+btn.style.top=y+"%";
 
 }
 
@@ -252,7 +273,7 @@ document.body.appendChild(f);
 
 setTimeout(()=>{
 f.remove();
-},2000)
+},1500)
 
 }
 
