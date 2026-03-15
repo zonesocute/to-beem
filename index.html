@@ -95,14 +95,6 @@ animation:boom 1.5s ease-out;
 100%{transform:scale(1.6);opacity:0;}
 }
 
-@keyframes shake{
-0%{transform:translate(-50%,-50%)}
-25%{transform:translate(-48%,-50%)}
-50%{transform:translate(-52%,-50%)}
-75%{transform:translate(-48%,-50%)}
-100%{transform:translate(-50%,-50%)}
-}
-
 </style>
 
 </head>
@@ -115,7 +107,8 @@ animation:boom 1.5s ease-out;
 
 <div class="book" id="page">
 
-<h2>ใส่รหัสก่อนน้า ใบ้ให้ว่าเป็นวันเกิดอ้วน + วันเกิดเค้า 💌</h2>
+<h2>ใส่รหัสก่อนน้า 
+<p>ใบ้ให้ว่าเป็นวันเกิดอ้วน + วันเกิดเค้า 💌</h2>
 
 <input type="password" id="pass" onkeypress="if(event.key==='Enter')check()">
 
@@ -136,15 +129,10 @@ var p=document.getElementById("pass").value;
 
 if(p=="39"){
 
-page.innerHTML=`
+music.volume=0.2;
+music.play().catch(()=>{});
 
-<h2>สมุดของเรา 📖</h2>
-
-<p>บีมลองเปิดดูนะ</p>
-
-<button onclick="start()">เปิดสมุด</button>
-
-`;
+page1();
 
 }else{
 
@@ -170,14 +158,13 @@ border-radius:20px;
 box-shadow:0 10px 30px rgba(0,0,0,0.25);
 text-align:center;
 z-index:999;
-animation:shake 0.3s;
 ">
 
 <h2>รหัสไม่ถูกนะ 😜</h2>
-<p>ลองอีกครั้งนะ</p>
+<p>ใส่อีกรอบ !</p>
 
 <button onclick="this.parentElement.parentElement.remove()">
-โอเค
+ok <3
 </button>
 
 </div>
@@ -187,22 +174,13 @@ document.body.appendChild(popup);
 
 }
 
-function start(){
-
-music.volume=0.2;
-music.play().catch(()=>{});
-
-page1();
-
-}
-
 function page1(){
 
 page.innerHTML=`
 
-<h2>หน้าแรก</h2>
+<h2>The Beginning of Us 💗</h2>
 
-<p>ตั้งแต่ยุบได้รู้จักบีม ยุบมีความสุขมากๆเลยนะ</p>
+<p>ตั้งแต่ยุบได้รู้จักบีม ยุบมีความสุขมากๆ เลยนะ :-)</p>
 
 <img src="https://i.ibb.co/Q7HWL880/photo1.jpg" onclick="page2()">
 
@@ -216,7 +194,7 @@ function page2(){
 
 page.innerHTML=`
 
-<h2>ยุบดีใจที่ได้เจอบีมจริงๆนะ</h2>
+<h2>ยุบดีใจที่ได้เจอบีมจริงๆ นะ</h2>
 
 <img src="https://i.ibb.co/Q7HWL880/photo2.jpg" onclick="page3()">
 
@@ -228,8 +206,8 @@ function page3(){
 
 page.innerHTML=`
 
-<h2>บางทีเราก็ทะเลาะกัน เข้าใจกันผิด</h2>
-<p>แต่ยุบยังอยากมีบีมอยู่ในชีวิตนะ</p>
+</p>บางทีเราก็ทะเลาะกัน เข้าใจกันผิด</p>
+</p>แต่ยุบยังอยากมีบีมอยู่ในชีวิตนะ</p>
 
 <img src="https://i.ibb.co/Q7HWL880/photo3.jpg" onclick="page4()">
 
@@ -241,7 +219,7 @@ function page4(){
 
 page.innerHTML=`
 
-<h2>แล้วก็มีบางอย่างที่ยุบอยากจะบอก</h2>
+<h2>แล้วก็มีบางอย่างที่ยุบอยากจะบอก .. .</h2>
 
 <img src="https://i.ibb.co/Q7HWL880/photo4.jpg" onclick="ask()">
 
